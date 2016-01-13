@@ -1,0 +1,39 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    overflow:hidden;
+}
+
+#gridContainer{
+    margin:auto;
+    position: relative;
+}
+
+.t1{
+    border: 1px solid #3399ff;
+    background-color: #99ccff;
+    position:absolute;
+}
+
+.tb{
+    border: 1px solid #3399ff;
+    background-color: #99ccff;
+    position:absolute;
+}
+
+.te{
+    border: 1px solid #009933;
+    background-color: #009933;
+    position:absolute;
+}
+
+.tx{
+    border: 1px solid #000;
+    background-color: #000;
+    position:absolute;
+}
+
+#Player{
+    background-color: #ffcc00;
+    position:absolute;
+}

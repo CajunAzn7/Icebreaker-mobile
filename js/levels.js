@@ -1,6 +1,7 @@
 //CODE IS UGLY
 //PLZ DONT LOOK AT CODE
 //LIKE ITS TERRIBLE
+var player;
 var allowMove = false;
 function loadLevel(level){
     $.get('levels/' + level + '.txt', function(data){
@@ -18,11 +19,8 @@ function loadLevel(level){
 }
 
 function generateMap(arr){
-    var container = document.getElementById('gridContainer');
-    $("#Player").removeData("pos");
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
+    var x, y;
+    $('#gridContainer').empty();
     $('#gridContainer').css({
         'width' : (arr[0].length * ((window.innerHeight/8)+2)) + 'px',
         'height' : (arr.length * ((window.innerHeight/8)+2)) + 'px',
@@ -42,7 +40,7 @@ function generateMap(arr){
             });
             $(tile).appendTo($('#gridContainer'));
             if(arr[i][k] == 'b'){
-                var player = document.createElement('div');
+                player = document.createElement('div');
                 player.id = 'Player';
                 $(player).css({
                     'height' : ((window.innerHeight/8)+2)/2 + 'px',
@@ -51,17 +49,19 @@ function generateMap(arr){
                     'top' : ((window.innerHeight/8)+2)/4 + 'px'
                 });
                 $(player).appendTo($(tile));
-                $("#Player").data("pos",{x: i, y: k});
+                x = i;
+                y = k;
             }
         }
     }
     $('#gridContainer').fadeIn();
-    if(allowMove === false){
-        var func = movePlayer();
-        allowMove = true;
-    }
+    player = new Player(x, y);
 }
 
-
+$('html').keydown(function(e){
+    if(e.keyCode >= 37 && e.keyCode <= 40){
+        player.movePlayer(e.keyCode);
+    }
+});
 
 

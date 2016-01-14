@@ -59,7 +59,7 @@ function generateMap(arr){
 }
 
 $('html').keydown(function(e){
-    if(e.keyCode >= 37 && e.keyCode <= 40){
+    if(e.keyCode >= 37 && e.keyCode <= 40 && $('#Player').length){
         player.movePlayer(e.keyCode);
     }
 });

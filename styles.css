@@ -4,6 +4,12 @@ html, body{
     overflow:hidden;
 }
 
+.button{
+    border: 1px solid #3399ff;
+    background-color: #99ccff;
+    position:relative;
+}
+
 #gridContainer{
     margin:auto;
     position: relative;

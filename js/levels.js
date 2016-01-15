@@ -28,17 +28,26 @@ function generateMap(arr){
         'display' : 'none'
     });
     for(var i = 0; i < arr.length; i++){
+        var tileContainer = document.createElement('div');
+        tileContainer.id = "tileContainer" + i;
+        tileContainer.class = 'tileContainer';
+        $(tileContainer).css({
+            'width': arr[0].length * ((window.innerHeight/8)+2) + 'px',
+            'height': (window.innerHeight/8) + 'px',
+            'margin': 'auto',
+            'border': '1px solid #3399ff'
+        });
+        $(tileContainer).appendTo('#gridContainer');
         for(var k = 0; k < arr[i].length; k++){
             var tile = document.createElement('div');
             tile.id = 'tile-'+ i +'-' + k;
             tile.className = 't' + arr[i][k];
             $(tile).css({
-                'top' : i * ((window.innerHeight/8)+2) + 'px',
                 'left': k * ((window.innerHeight/8)+2) + 'px',
                 'height': (window.innerHeight/8) + 'px',
                 'width': (window.innerHeight/8) + 'px'
             });
-            $(tile).appendTo($('#gridContainer'));
+            $(tile).appendTo($(tileContainer));
             if(arr[i][k] == 'b'){
                 player = document.createElement('div');
                 player.id = 'Player';

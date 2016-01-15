@@ -51,4 +51,14 @@ Player.prototype.movePlayer = function(direction){
         $(tile).removeClass('t1');
         $(tile).addClass('tx');
     }
+    this.checkMoves();
+    this.checkWin();
+}
+
+Player.prototype.checkWin = function(){
+    
+}
+
+Player.prototype.checkMoves = function(){
+    
 }

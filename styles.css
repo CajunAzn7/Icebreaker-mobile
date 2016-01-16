@@ -1,7 +1,7 @@
 html, body{
     height: 100%;
     width: 100%;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .button{
@@ -12,7 +12,9 @@ html, body{
 
 #gridContainer{
     margin:auto;
-    position: relative;
+    position: absolute;
+    display : none;
+    top: 0; left: 0; bottom: 0; right: 0;
 }
 
 .t1{

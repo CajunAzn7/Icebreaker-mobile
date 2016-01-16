@@ -2,7 +2,7 @@
 //PLZ DONT LOOK AT CODE
 //LIKE ITS TERRIBLE
 var player;
-var allowMove = false;
+var currMap;
 function loadLevel(level){
     $.get('levels/' + level + '.txt', function(data){
             var rows = data.split('\n');
@@ -16,26 +16,21 @@ function loadLevel(level){
             }
             generateMap(levelRow);
     });
+    currMap = level;
 }
 
 function generateMap(arr){
     var x, y;
+    var winWid = ((window.innerWidth/(arr[0].length + 1)));
     $('#gridContainer').empty();
-    $('#gridContainer').css({
-        'width' : (arr[0].length * ((window.innerHeight/8)+2)) + 'px',
-        'height' : (arr.length * ((window.innerHeight/8)+2)) + 'px',
-        'border' : '5px solid #6699ff',
-        'display' : 'none'
-    });
     for(var i = 0; i < arr.length; i++){
         var tileContainer = document.createElement('div');
         tileContainer.id = "tileContainer" + i;
-        tileContainer.class = 'tileContainer';
+        tileContainer.className = 'tileContainer';
         $(tileContainer).css({
-            'width': arr[0].length * ((window.innerHeight/8)+2) + 'px',
-            'height': (window.innerHeight/8) + 'px',
+            'width': arr[0].length * winWid + 'px',
+            'height': winWid + 'px',
             'margin': 'auto',
-            'border': '1px solid #3399ff'
         });
         $(tileContainer).appendTo('#gridContainer');
         for(var k = 0; k < arr[i].length; k++){
@@ -43,19 +38,19 @@ function generateMap(arr){
             tile.id = 'tile-'+ i +'-' + k;
             tile.className = 't' + arr[i][k];
             $(tile).css({
-                'left': k * ((window.innerHeight/8)+2) + 'px',
-                'height': (window.innerHeight/8) + 'px',
-                'width': (window.innerHeight/8) + 'px'
+                'left': k * winWid + 'px',
+                'height': winWid + 'px',
+                'width': winWid + 'px'
             });
             $(tile).appendTo($(tileContainer));
             if(arr[i][k] == 'b'){
                 player = document.createElement('div');
                 player.id = 'Player';
                 $(player).css({
-                    'height' : ((window.innerHeight/8)+2)/2 + 'px',
-                    'width' : ((window.innerHeight/8)+2)/2 + 'px',
-                    'left' : ((window.innerHeight/8)+2)/4 + 'px',
-                    'top' : ((window.innerHeight/8)+2)/4 + 'px'
+                    'height' : winWid/2 + 'px',
+                    'width' : winWid/2 + 'px',
+                    'left' : winWid/4 + 'px',
+                    'top' : winWid/4 + 'px'
                 });
                 $(player).appendTo($(tile));
                 x = i;
@@ -63,6 +58,15 @@ function generateMap(arr){
             }
         }
     }
+    $('#gridContainer').css({
+        'width' : (arr[0].length * (winWid)) + 'px',
+        'height' : (arr.length * (winWid)) + 'px',
+        'border' : '5px solid #6699ff',
+        'margin-top': 'auto',
+        'margin' : 'auto',
+        'display' : 'none'
+    });
+    
     $('#gridContainer').fadeIn();
     player = new Player(x, y);
 }
@@ -70,6 +74,9 @@ function generateMap(arr){
 $('html').keydown(function(e){
     if(e.keyCode >= 37 && e.keyCode <= 40 && $('#Player').length){
         player.movePlayer(e.keyCode);
+    }
+    if(e.keyCode == 82){
+        loadLevel(currMap);
     }
 });
 

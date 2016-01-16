@@ -1,6 +1,7 @@
 //CODE IS UGLY
 //PLZ DONT LOOK AT CODE
 //LIKE ITS TERRIBLE
+var win = new Audio('sounds/win.wav');
 function Player(x, y){
     this.x_val = x;
     this.y_val = y;
@@ -56,7 +57,32 @@ Player.prototype.movePlayer = function(direction){
 }
 
 Player.prototype.checkWin = function(){
-    
+    var clear = 0;
+    var total = $('.tileContainer').length * ($('#tileContainer1').children().length) - 2;
+    for(var i = 0; i < $('.tileContainer').length; i++){
+        for(var k = 0; k < $('#tileContainer' + i + ' > div').length; k++){
+            var tile = $('#tile-' + i + '-' + k);
+            if($(tile).hasClass('tx')){
+                clear++;
+            }
+        }
+    }
+    if(clear == total){
+        var x = this.x_val;
+        var y = this.y_val;
+        var top = $('#tile-'+ (x-1) + '-' + y).hasClass('te');
+        var bot = $('#tile-'+ (x+1) + '-' + y).hasClass('te');
+        var left = $('#tile-'+ (x) + '-' + (y - 1)).hasClass('te');
+        var right = $('#tile-'+ (x) + '-' + (y + 1)).hasClass('te');
+        if(top || bot || left || right){
+            var end = $(".te", "#gridContainer");
+            $(end).removeClass('te');
+            $(end).addClass('t1');
+        }
+    }
+    if(clear == total + 1){
+        win.play();
+    }
 }
 
 Player.prototype.checkMoves = function(){

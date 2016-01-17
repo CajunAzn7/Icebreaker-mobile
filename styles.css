@@ -2,6 +2,13 @@ html, body{
     height: 100%;
     width: 100%;
     overflow: hidden;
+    background-color: #3399ff;
+}
+
+#main{
+    height: 100%;
+    width: 100%;
+    background-color: #3399ff;
 }
 
 .button{
@@ -18,14 +25,14 @@ html, body{
 }
 
 .t1{
-    border: 1px solid #3399ff;
-    background-color: #99ccff;
+    border: 1px solid #66ccff;
+    background-color: #ccffff;
     position:absolute;
 }
 
 .tb{
-    border: 1px solid #3399ff;
-    background-color: #99ccff;
+    border: 1px solid #66ccff;
+    background-color: #ccffff;
     position:absolute;
 }
 

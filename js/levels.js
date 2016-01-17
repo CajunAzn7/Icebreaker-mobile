@@ -4,6 +4,17 @@
 var player;
 var x, y;
 var currMap;
+var down;
+
+myAudio = new Audio('sounds/semi.wav');
+
+$(myAudio).bind('ended', function()  {
+    myAudio.currentTime = 0;
+    myAudio.play();
+});
+
+myAudio.play();
+
 function loadLevel(level){
     $.get('levels/' + level + '.txt', function(data){
             var rows = data.split('\n');
@@ -21,7 +32,8 @@ function loadLevel(level){
 }
 
 function generateMap(arr){
-    var winWid = ((window.innerWidth/(arr[0].length + 1)));
+    var winWid;
+    winWid = ((window.innerHeight/(arr.length + 1)));
     $('#gridContainer').empty();
     for(var i = 0; i < arr.length; i++){
         var tileContainer = document.createElement('div');
@@ -68,17 +80,20 @@ function generateMap(arr){
     });
     
     $('#gridContainer').fadeIn();
-    $('.button').fadeOut();
     var clear = $('.tx').length;
-    player = new Player(x, y, clear);
+    player = new Player(x, y, clear, false);
 }
 
 $('html').keydown(function(e){
-    if(e.keyCode >= 37 && e.keyCode <= 40 && $('#Player').length){
+    if(e.keyCode >= 37 && e.keyCode <= 40 && $('#Player').length && down === false){
         player.movePlayer(e.keyCode);
+        down = true;
     }
     if(e.keyCode == 82){
         loadLevel(currMap);
+    }
+    document.onkeyup = function(){
+        down = false;
     }
 });
 

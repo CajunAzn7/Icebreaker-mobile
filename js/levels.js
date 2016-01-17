@@ -68,6 +68,7 @@ function generateMap(arr){
     });
     
     $('#gridContainer').fadeIn();
+    $('.button').fadeOut();
     var clear = $('.tx').length;
     player = new Player(x, y, clear);
 }

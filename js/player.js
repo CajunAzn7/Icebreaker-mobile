@@ -76,6 +76,8 @@ Player.prototype.checkWin = function(){
     if(this.clear == total + 1){
         win.play();
         clear = 0;
+        $('#gridContainer').fadeOut();
+        $('.button').fadeIn();
     }
 }
 

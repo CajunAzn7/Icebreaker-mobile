@@ -2,6 +2,7 @@
 //PLZ DONT LOOK AT CODE
 //LIKE ITS TERRIBLE
 var player;
+var x, y;
 var currMap;
 function loadLevel(level){
     $.get('levels/' + level + '.txt', function(data){
@@ -20,7 +21,6 @@ function loadLevel(level){
 }
 
 function generateMap(arr){
-    var x, y;
     var winWid = ((window.innerWidth/(arr[0].length + 1)));
     $('#gridContainer').empty();
     for(var i = 0; i < arr.length; i++){
@@ -68,7 +68,8 @@ function generateMap(arr){
     });
     
     $('#gridContainer').fadeIn();
-    player = new Player(x, y);
+    var clear = $('.tx').length;
+    player = new Player(x, y, clear);
 }
 
 $('html').keydown(function(e){

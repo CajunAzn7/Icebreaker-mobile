@@ -1,10 +1,11 @@
 //CODE IS UGLY
 //PLZ DONT LOOK AT CODE
 //LIKE ITS TERRIBLE
-var win = new Audio('sounds/win.wav');
-function Player(x, y){
+var win = new Audio('sounds/WinChime.wav');
+function Player(x, y, clear){
     this.x_val = x;
     this.y_val = y;
+    this.clear = clear;
 }
 
 Player.prototype.newVal = function(x, y){
@@ -51,23 +52,15 @@ Player.prototype.movePlayer = function(direction){
     if($(tile).children().length < 1){
         $(tile).removeClass('t1');
         $(tile).addClass('tx');
+        this.clear++;
     }
     this.checkMoves();
     this.checkWin();
 }
 
 Player.prototype.checkWin = function(){
-    var clear = 0;
     var total = $('.tileContainer').length * ($('#tileContainer1').children().length) - 2;
-    for(var i = 0; i < $('.tileContainer').length; i++){
-        for(var k = 0; k < $('#tileContainer' + i + ' > div').length; k++){
-            var tile = $('#tile-' + i + '-' + k);
-            if($(tile).hasClass('tx')){
-                clear++;
-            }
-        }
-    }
-    if(clear == total){
+    if(this.clear == total){
         var x = this.x_val;
         var y = this.y_val;
         var top = $('#tile-'+ (x-1) + '-' + y).hasClass('te');
@@ -80,8 +73,9 @@ Player.prototype.checkWin = function(){
             $(end).addClass('t1');
         }
     }
-    if(clear == total + 1){
+    if(this.clear == total + 1){
         win.play();
+        clear = 0;
     }
 }
 

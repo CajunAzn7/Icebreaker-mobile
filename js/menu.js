@@ -1,11 +1,41 @@
-var showTutorial = function(){
-    loadLevel('tutorial1');
+var show = function(){
     $('#titleName').fadeOut();
     $('#start').fadeOut();
-    $('#instruct').fadeIn();
-    $('#instruct2').fadeIn();
     $( "#start" ).remove();
     $( "#titleName" ).remove();
+    var welcome = document.createElement('div');
+    welcome.id = 'welcome';
+    welcome.innerHTML = 'Welcome to Icebreaker...';
+    $(welcome).appendTo('#menu');
+    $(welcome).fadeIn();
+    
+    var welcome2 = document.createElement('div');
+    welcome2.id = 'welcome2';
+    welcome2.innerHTML = 'A game where you break the ice';
+    $(welcome2).appendTo('#menu');
+    $(welcome2).fadeIn();
+    $('#cont').fadeIn();
+}
+
+
+var showTutorial = function(){
+    $('#welcome').fadeOut();
+    $('#welcome2').fadeOut();
+    $('#cont').fadeOut();
+    $('#welcome').remove();
+    $('#welcome2').remove();
+    $('#cont').remove();
+    var instruct = document.createElement('div');
+    instruct.id = 'instruct';
+    instruct.innerHTML='Use the arrow keys to move...';
+    var instruct2 = document.createElement('div');
+    instruct2.id = 'instruct2';
+    instruct2.innerHTML='...to get to the green square';
+    loadLevel('tutorial1');
+    $(instruct).appendTo('#menu');
+    $(instruct2).appendTo('#menu');
+    $(instruct).fadeIn();
+    $(instruct2).fadeIn();
     $('#gridContainer').appendTo('#menu');
     $('#gridContainer').css({transform: 'scale(0.8)'});
 }

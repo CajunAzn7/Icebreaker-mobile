@@ -85,10 +85,13 @@ function generateMap(arr){
 }
 
 $('html').keydown(function(e){
-    while(down === false){
+    if(down === false){
         if(e.keyCode >= 37 && e.keyCode <= 40 && $('#Player').length){
             down = true;
             player.movePlayer(e.keyCode);
+        }
+        else{
+            down = false;
         }
     }
 });

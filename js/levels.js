@@ -4,9 +4,9 @@
 var player;
 var x, y;
 var currMap;
-var down;
+var down = false;
 
-myAudio = new Audio('sounds/semi.wav');
+myAudio = new Audio('sounds/s.wav');
 
 $(myAudio).bind('ended', function()  {
     myAudio.currentTime = 0;
@@ -85,12 +85,11 @@ function generateMap(arr){
 }
 
 $('html').keydown(function(e){
-    if(e.keyCode >= 37 && e.keyCode <= 40 && $('#Player').length && down === false){
-        player.movePlayer(e.keyCode);
-        down = true;
-    }
-    if(e.keyCode == 82){
-        loadLevel(currMap);
+    if(down === false){
+        if(e.keyCode >= 37 && e.keyCode <= 40 && $('#Player').length){
+            down = true;
+            player.movePlayer(e.keyCode);
+        }
     }
     document.onkeyup = function(){
         down = false;

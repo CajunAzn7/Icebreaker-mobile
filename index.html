@@ -6,10 +6,14 @@
 	<script src='js/levels.js'></script>
 	<script src='js/tutorial.js'></script>
 	<script src='js/menu.js'></script>
+	<link href='https://fonts.googleapis.com/css?family=Hind:400,600' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id = 'menu'></div>
+    <div id = 'menu'>
+        <div id='titleName'>ICEBREAKER</div>
+        <div id = 'start' onclick = 'showTutorial()'>START</div>
+    </div>
     <div id = 'main'>
         <input class = 'button' value = "1" type="button" onclick='loadLevel(1)'/>
         <input class = 'button' value = "2" type="button" onclick='loadLevel(2)'/>

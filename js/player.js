@@ -3,11 +3,12 @@
 //LIKE ITS TERRIBLE
 var win = new Audio('sounds/WinChime.wav');
 var click = new Audio('sounds/Click3');
-function Player(x, y, clear, win){
+function Player(x, y, clear, win, map){
     this.x_val = x;
     this.y_val = y;
     this.clear = clear;
     this.win = win;
+    this.map = map;
 }
 
 Player.prototype.newVal = function(x, y){
@@ -61,6 +62,16 @@ Player.prototype.movePlayer = function(direction){
     if(this.win === false){
         this.checkMoves();
     }
+    else if(this.win === true && this.map == 'tutorial1'){
+        $('#gridContainer').css({'display' : 'none'});
+        $('#gridContainer').empty();
+        $('#gridContainer').appendTo('#main');
+        $('#menu').remove();
+        $('#main').fadeIn();
+    }
+    else if(this.win === true){
+        $('#winScreen').fadeIn();
+    }
 }
 
 Player.prototype.checkWin = function(){
@@ -84,6 +95,8 @@ Player.prototype.checkWin = function(){
         clear = 0;
     }
 }
+
+
 /*
 Player.prototype.checkMoves = function(){
     var top = $('#tile-'+ (x-1) + '-' + y).hasClass('t1');

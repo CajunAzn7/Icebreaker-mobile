@@ -81,19 +81,18 @@ function generateMap(arr){
     
     $('#gridContainer').fadeIn();
     var clear = $('.tx').length;
-    player = new Player(x, y, clear, false);
+    player = new Player(x, y, clear, false, currMap);
 }
 
 $('html').keydown(function(e){
-    if(down === false){
+    while(down === false){
         if(e.keyCode >= 37 && e.keyCode <= 40 && $('#Player').length){
             down = true;
             player.movePlayer(e.keyCode);
         }
     }
-    document.onkeyup = function(){
-        down = false;
-    }
 });
 
-
+$('html').keyup(function(e){
+    down = false;
+});

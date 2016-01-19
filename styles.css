@@ -95,6 +95,7 @@ html, body{
 
 div#cont.continue{
     top: 70%;
+    cursor: pointer;
     display: none;
 }
 
@@ -122,6 +123,7 @@ div#cont.continue{
     width: 100px;
     font-family: 'Hind', sans-serif;
     font-size: 3em;
+    cursor: pointer;
     border: 1px solid #3399ff;
     background-color: #99ccff;
     position:relative;

@@ -65,33 +65,37 @@ Player.prototype.movePlayer = function(direction){
     else if(this.win === true && this.map == 'tutorial1'){
         $('#gridContainer').empty();
         loadLevel('tutorial2');
-        instruct.innerHTML='But you can&#39t just go to the end square...';
-        instruct2.innerHTML='...you have to clear the others first';
-        $(instruct2).css({'top' : '85%'});
+        $('#instruct').text('But you can\'t just go to the end square...');
+        $('#instruct2').text('...you have to clear the others first');
+        $('#instruct2').css({'top' : '85%'});
+        $('#instruct').fadeIn(1000);
+        $('#instruct2').fadeIn(1000);
     }
     else if(this.win === true && this.map == 'tutorial2'){
-        $('#instruct').fadeOut();
-        $('#instruct2').fadeOut();
+        $('#instruct').fadeOut(1000);
+        $('#instruct2').fadeOut(1000);
         $('#instruct').remove();
         $('#instruct2').remove();
-        $('#gridContainer').empty();
-        $('#gridContainer').appendTo('#main');
+        $('#gridContainer').fadeOut(1000);
         $('#welcome').text('You know the basics of the game...');
         $('#welcome2').text('Now go play!');
         $('#welcome2').css({'top' : '60%'});
-        $('#welcome').fadeIn();
-        $('#welcome2').fadeIn();
+        $('#welcome').fadeIn(1000);
+        $('#welcome2').fadeIn(1000);
+        $('#cont').off('click');
         $('#cont').click(function(){
-            $('#welcome').fadeOut();
-            $('#welcome2').fadeOut();
-            $('#mycont').fadeOut();
-            $('#main').fadeIn();
+            $('#welcome').fadeOut(1000);
+            $('#welcome2').fadeOut(1000);
+            $('#mycont').fadeOut(1000);
+            $('#main').fadeIn(1000);
+            $('#gridContainer').empty();
+            $('#gridContainer').appendTo('#main');
             $('#menu').remove();
         });
-        $('#cont').fadeIn();
+        $('#cont').fadeIn(1000);
     }
     else if(this.win === true){
-        $('#winScreen').fadeIn();
+        $('#winScreen').fadeIn(1000);
     }
 }
 

@@ -2,7 +2,7 @@
 //PLZ DONT LOOK AT CODE
 //LIKE ITS TERRIBLE
 var win = new Audio('sounds/WinChime.wav');
-var click = new Audio('sounds/Click3');
+var click = new Audio('sounds/Clicky.wav');
 function Player(x, y, clear, win, map){
     this.x_val = x;
     this.y_val = y;
@@ -63,11 +63,32 @@ Player.prototype.movePlayer = function(direction){
         this.checkMoves();
     }
     else if(this.win === true && this.map == 'tutorial1'){
-        $('#gridContainer').css({'display' : 'none'});
+        $('#gridContainer').empty();
+        loadLevel('tutorial2');
+        instruct.innerHTML='But you can&#39t just go to the end square...';
+        instruct2.innerHTML='...you have to clear the others first';
+        $(instruct2).css({'top' : '85%'});
+    }
+    else if(this.win === true && this.map == 'tutorial2'){
+        $('#instruct').fadeOut();
+        $('#instruct2').fadeOut();
+        $('#instruct').remove();
+        $('#instruct2').remove();
         $('#gridContainer').empty();
         $('#gridContainer').appendTo('#main');
-        $('#menu').remove();
-        $('#main').fadeIn();
+        $('#welcome').text('You know the basics of the game...');
+        $('#welcome2').text('Now go play!');
+        $('#welcome2').css({'top' : '60%'});
+        $('#welcome').fadeIn();
+        $('#welcome2').fadeIn();
+        $('#cont').click(function(){
+            $('#welcome').fadeOut();
+            $('#welcome2').fadeOut();
+            $('#mycont').fadeOut();
+            $('#main').fadeIn();
+            $('#menu').remove();
+        });
+        $('#cont').fadeIn();
     }
     else if(this.win === true){
         $('#winScreen').fadeIn();

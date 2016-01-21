@@ -4,7 +4,7 @@ function loadButtons(but){
         button.id = 'button' + but;
         $(button).text(but);
         $(button).css({
-            'top' : (but-1) * 202 + 2 + 'px'
+            'top' : (but) * 200 + 2 + 'px'
         });
         $(button).click(function(){
             loadLevel(but);

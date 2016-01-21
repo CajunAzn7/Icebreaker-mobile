@@ -100,15 +100,15 @@ Player.prototype.movePlayer = function(direction){
             for(var i = 1; i < 10; i++){
                 loadButtons(i);
             }
-            window.setTimeout(function(){$('#menu').remove();}, 500);
+            window.setTimeout(function(){$('#menu').remove();}, 1000);
         });
         $('#cont').delay(1000).fadeIn(1000);
     }
     else if(this.win === true){
         $('#winScreen').fadeIn(1000);
         var cont = document.createElement('div');
-        $(cont).text = 'Next Level';
-        $(cont).className = 'continue';
+        $(cont).text('Next Level');
+        cont.className = 'continue';
         $(cont).onclick = function(){
             loadLevel(this.map+1);
         }

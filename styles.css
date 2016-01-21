@@ -120,6 +120,8 @@ div#cont.continue{
     line-height: 200px;
     vertical-align: center;
     text-align: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: 1px solid #3399ff;
     background-color: #99ccff;
     position:absolute;

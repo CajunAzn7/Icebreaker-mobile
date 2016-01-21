@@ -63,39 +63,56 @@ Player.prototype.movePlayer = function(direction){
         this.checkMoves();
     }
     else if(this.win === true && this.map == 'tutorial1'){
-        $('#gridContainer').empty();
-        loadLevel('tutorial2');
-        $('#instruct').text('But you can\'t just go to the end square...');
-        $('#instruct2').text('...you have to clear the others first');
-        $('#instruct2').css({'top' : '85%'});
-        $('#instruct').fadeIn(1000);
-        $('#instruct2').fadeIn(1000);
+        $('#instruct').fadeOut();
+        $('#instruct2').fadeOut();
+        $('#gridContainer').fadeOut();
+        window.setTimeout(function(){
+            $('#instruct').text('But you can\'t just go to the end square...');
+            $('#instruct2').text('...you have to clear the others first');
+            loadLevel('tutorial2');
+            $('#instruct2').css({'top' : '85%'});
+            $('#instruct').fadeIn(1000);
+            $('#instruct2').fadeIn(1000);
+        }, 1000);
+        
     }
     else if(this.win === true && this.map == 'tutorial2'){
         $('#instruct').fadeOut(1000);
         $('#instruct2').fadeOut(1000);
-        $('#instruct').remove();
-        $('#instruct2').remove();
         $('#gridContainer').fadeOut(1000);
         $('#welcome').text('You know the basics of the game...');
         $('#welcome2').text('Now go play!');
         $('#welcome2').css({'top' : '60%'});
-        $('#welcome').fadeIn(1000);
-        $('#welcome2').fadeIn(1000);
+        $('#welcome').delay(1000).fadeIn(1000);
+        $('#welcome2').delay(1000).fadeIn(1000);
         $('#cont').off('click');
         $('#cont').click(function(){
             $('#welcome').fadeOut(1000);
             $('#welcome2').fadeOut(1000);
             $('#mycont').fadeOut(1000);
+            $('#main').css({'overflow' : 'scroll'});
             $('#main').fadeIn(1000);
             $('#gridContainer').empty();
             $('#gridContainer').appendTo('#main');
-            $('#menu').remove();
+            $('#main').css({
+                'overflow-y': 'auto'
+            }); 
+            for(var i = 1; i < 10; i++){
+                loadButtons(i);
+            }
+            window.setTimeout(function(){$('#menu').remove();}, 500);
         });
-        $('#cont').fadeIn(1000);
+        $('#cont').delay(1000).fadeIn(1000);
     }
     else if(this.win === true){
         $('#winScreen').fadeIn(1000);
+        var cont = document.createElement('div');
+        $(cont).text = 'Next Level';
+        $(cont).className = 'continue';
+        $(cont).onclick = function(){
+            loadLevel(this.map+1);
+        }
+        $(cont).appendTo('#winScreen');
     }
 }
 
@@ -114,7 +131,7 @@ Player.prototype.checkWin = function(){
             $(end).addClass('t1');
         }
     }
-    if(this.clear == total + 1){
+    if(this.clear == total + 1 && this.win === false){
         win.play();
         this.win = true;
         clear = 0;

@@ -99,13 +99,6 @@ div#cont.continue{
     display: none;
 }
 
-#main{
-    height: 100%;
-    width: 100%;
-    background-color: #3399ff;
-    display: none;
-}
-
 #winScreen{
     height: 300px;
     width: 600px;
@@ -119,14 +112,17 @@ div#cont.continue{
 }
 
 .button{
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
     font-family: 'Hind', sans-serif;
     font-size: 3em;
     cursor: pointer;
+    line-height: 200px;
+    vertical-align: center;
+    text-align: center;
     border: 1px solid #3399ff;
     background-color: #99ccff;
-    position:relative;
+    position:absolute;
 }
 
 #gridContainer{

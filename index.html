@@ -4,8 +4,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src='js/player.js'></script>
 	<script src='js/levels.js'></script>
+	<script src='js/buttons.js'></script>
 	<script src='js/menu.js'></script>
-	<script src='js/tutorial.js'></script>
+	
 	
 	<link href='https://fonts.googleapis.com/css?family=Hind:400,600' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="styles.css">
@@ -16,14 +17,7 @@
         <div class = 'continue' id = 'start' onclick = 'show()'>START</div>
         <div class = 'continue' id = 'cont'>CONTINUE</div>
     </div>
-    <div id = 'main'>
-        <input class = 'button' value = "1" type="button" onclick='loadLevel(1)'/>
-        <input class = 'button' value = "2" type="button" onclick='loadLevel(2)'/>
-        <input class = 'button' value = "3" type="button" onclick='loadLevel(3)'/>
-        <input class = 'button' value = "4" type="button" onclick='loadLevel(4)'/>
-        <input class = 'button' value = "5" type="button" onclick='loadLevel(5)'/>
-        <input class = 'button' value = "6" type="button" onclick='loadLevel(6)'/>
-        <div id = "gridContainer"></div>
-    </div>
+    <div id = "gridContainer"></div>
+    <div id = 'winScreen'></div>
 </body>
 </html>

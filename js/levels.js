@@ -6,7 +6,7 @@ var x, y;
 var currMap;
 var down = false;
 
-myAudio = new Audio('sounds/s.wav');
+myAudio = new Audio('sounds/Snow.wav');
 
 $(myAudio).bind('ended', function()  {
     myAudio.currentTime = 0;

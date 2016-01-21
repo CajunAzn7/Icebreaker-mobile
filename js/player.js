@@ -1,7 +1,7 @@
 //CODE IS UGLY
 //PLZ DONT LOOK AT CODE
 //LIKE ITS TERRIBLE
-var win = new Audio('sounds/WinChime.wav');
+var win = new Audio('sounds/ShortWin.wav');
 var click = new Audio('sounds/Clicky.wav');
 function Player(x, y, clear, win, map){
     this.x_val = x;
@@ -94,7 +94,7 @@ Player.prototype.movePlayer = function(direction){
             $('#main').fadeIn(1000);
             $('#gridContainer').empty();
             $('#gridContainer').appendTo('#main');
-            $('#main').css({
+            $('html, body').css({
                 'overflow-y': 'auto'
             }); 
             for(var i = 1; i < 10; i++){
@@ -116,6 +116,19 @@ Player.prototype.movePlayer = function(direction){
             $('#winScreen').fadeOut(1000);
         });
         $(cont).appendTo('#winScreen');
+        var menu = document.createElement('div');
+        $(menu).text('Main Menu');
+        menu.className = 'continue';
+        $(menu).css({
+            'background-color': '#3399ff',
+            'top': '80%'
+        });
+        $(menu).click(function(){
+            $('#winScreen').fadeOut(1000);
+            $('.button').fadeIn(1000);
+            $('#gridContainer').fadeOut(1000);
+        });
+        $(menu).appendTo('#winScreen');
     }
 }
 

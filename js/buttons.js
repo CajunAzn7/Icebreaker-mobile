@@ -8,6 +8,9 @@ function loadButtons(but){
         });
         $(button).click(function(){
             loadLevel(but);
+            $('html, body').css({
+                'overflow-y': 'hidden'
+            }); 
         });
         $(button).appendTo('body');
     

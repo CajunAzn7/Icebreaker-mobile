@@ -105,13 +105,16 @@ Player.prototype.movePlayer = function(direction){
         $('#cont').delay(1000).fadeIn(1000);
     }
     else if(this.win === true){
+        var map = this.map;
         $('#winScreen').fadeIn(1000);
         var cont = document.createElement('div');
+        $(cont).css('background-color', '#3399ff');
         $(cont).text('Next Level');
         cont.className = 'continue';
-        $(cont).onclick = function(){
-            loadLevel(this.map+1);
-        }
+        $(cont).click(function(){
+            loadLevel(map+1);
+            $('#winScreen').fadeOut(1000);
+        });
         $(cont).appendTo('#winScreen');
     }
 }

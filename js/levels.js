@@ -33,7 +33,7 @@ function loadLevel(level){
 
 function generateMap(arr){
     var winWid;
-    winWid = ((window.innerHeight/(arr.length + 1)));
+    winWid = ((window.innerWidth/(arr.length)));
     $('#gridContainer').empty();
     for(var i = 0; i < arr.length; i++){
         var tileContainer = document.createElement('div');

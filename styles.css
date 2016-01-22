@@ -7,7 +7,7 @@ html, body{
 
 #titleName{
     margin: auto;
-    font-size: 8em;
+    font-size: 4em;
     font-family: 'Hind', sans-serif;
     top: 40%;
     left: 50%;
@@ -23,70 +23,70 @@ html, body{
 
 #welcome{
     height: 1.5em;
-    width: 600px;
+    width: 400px;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Hind', sans-serif;
     vertical-align: center;
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     position: absolute;
     display: none;
 }
 
 #welcome2{
     height: 1.5em;
-    width: 800px;
+    width: 600px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Hind', sans-serif;
     vertical-align: center;
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     position: absolute;
     display: none;
 }
 
 #instruct{
     height: 1.5em;
-    width: 600px;
+    width: 400px;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Hind', sans-serif;
     vertical-align: center;
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     position: absolute;
     display: none;
 }
 
 #instruct2{
     height: 1.5em;
-    width: 600px;
+    width: 400px;
     top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Hind', sans-serif;
     vertical-align: center;
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     position: absolute;
     display: none;
 }
 
 .continue{
     height: 1.5em;
-    width: 300px;
+    width: 200px;
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Hind', sans-serif;
     vertical-align: center;
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     background-color: #009933;
     border: 1px solid #009933;
     cursor: pointer;

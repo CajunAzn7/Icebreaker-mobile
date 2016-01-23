@@ -58,7 +58,6 @@ function generateMap(arr){
             if(arr[i][k] == 'b'){
                 player = document.createElement('div');
                 player.id = 'Player';
-                alert(player.id);
                 $(player).css({
                     'height' : winWid/2 + 'px',
                     'width' : winWid/2 + 'px',
@@ -85,9 +84,3 @@ function generateMap(arr){
     var clear = $('.tx').length;
     player = new Player(x, y, clear, false, currMap);
 }
-
-$("html").swipe({
-    swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-      player.movePlayer(direction);
-    }
-  });

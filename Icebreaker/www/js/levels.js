@@ -4,8 +4,8 @@
 var player;
 var x, y;
 var currMap;
-var down = false;
 
+/*
 myAudio = new Audio('sounds/Snow.wav');
 
 $(myAudio).bind('ended', function()  {
@@ -14,6 +14,7 @@ $(myAudio).bind('ended', function()  {
 });
 
 myAudio.play();
+*/
 
 function loadLevel(level){
     $.get('levels/' + level + '.txt', function(data){
@@ -35,6 +36,7 @@ function generateMap(arr){
     var winWid;
     winWid = ((window.innerWidth/(arr.length)));
     $('#gridContainer').empty();
+    $('#Player').remove();
     for(var i = 0; i < arr.length; i++){
         var tileContainer = document.createElement('div');
         tileContainer.id = "tileContainer" + i;
@@ -83,4 +85,11 @@ function generateMap(arr){
     $('.button').fadeOut();
     var clear = $('.tx').length;
     player = new Player(x, y, clear, false, currMap);
+    $('html').bind("touchstart", function(event){
+        var start = {}; 
+        start = event.originalEvent.targetTouches[0];
+        swipe(player, start);
+    });
 }
+
+        

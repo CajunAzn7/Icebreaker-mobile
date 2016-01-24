@@ -62,6 +62,7 @@ Player.prototype.movePlayer = function(direction){
     if(this.win === false){
         this.checkMoves();
     }
+    /*
     else if(this.win === true && this.map == 'tutorial1'){
         $('#instruct').fadeOut();
         $('#instruct2').fadeOut();
@@ -76,10 +77,14 @@ Player.prototype.movePlayer = function(direction){
         }, 1000);
         
     }
-    else if(this.win === true && this.map == 'tutorial2'){
+    */
+    else if(this.win === true && this.map == 'tutorial1'){
+        this.win = false;
+        $('html').off();
         $('#instruct').fadeOut(1000);
         $('#instruct2').fadeOut(1000);
         $('#gridContainer').fadeOut(1000);
+        $('#Player').remove();
         $('#welcome').text('You know the basics of the game...');
         $('#welcome2').text('Now go play!');
         $('#welcome2').css({'top' : '60%'});
@@ -105,8 +110,11 @@ Player.prototype.movePlayer = function(direction){
         $('#cont').delay(1000).fadeIn(1000);
     }
     else if(this.win === true){
+        this.win = false;
+        $('html').off();
         var map = this.map;
         $('#winScreen').fadeIn(1000);
+        $('#Player').remove();
         var cont = document.createElement('div');
         $(cont).css('background-color', '#3399ff');
         $(cont).text('Next Level');

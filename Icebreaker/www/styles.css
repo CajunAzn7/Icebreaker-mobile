@@ -7,7 +7,7 @@ html, body{
 
 #titleName{
     margin: auto;
-    font-size: 4em;
+    font-size: 3em;
     font-family: 'Hind', sans-serif;
     top: 40%;
     left: 50%;
@@ -23,56 +23,56 @@ html, body{
 
 #welcome{
     height: 1.5em;
-    width: 400px;
+    width: 300px;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Hind', sans-serif;
     vertical-align: center;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.25em;
     position: absolute;
     display: none;
 }
 
 #welcome2{
     height: 1.5em;
-    width: 600px;
+    width: 450px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Hind', sans-serif;
     vertical-align: center;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.25em;
     position: absolute;
     display: none;
 }
 
 #instruct{
     height: 1.5em;
-    width: 400px;
+    width: 300px;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Hind', sans-serif;
     vertical-align: center;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.25em;
     position: absolute;
     display: none;
 }
 
 #instruct2{
     height: 1.5em;
-    width: 400px;
+    width: 300px;
     top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Hind', sans-serif;
     vertical-align: center;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.25em;
     position: absolute;
     display: none;
 }

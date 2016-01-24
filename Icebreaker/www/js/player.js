@@ -68,9 +68,10 @@ Player.prototype.movePlayer = function(direction){
         $('#instruct2').fadeOut();
         $('#gridContainer').fadeOut();
         window.setTimeout(function(){
-            $('#instruct').text('But you can\'t just go to the end square...');
-            $('#instruct2').text('...you have to clear the others first');
+            $('#instruct').text('You must break all the ice squares...');
+            $('#instruct2').text('...in order to get to the end');
             loadLevel('tutorial2');
+            $('#gridContainer').css({transform: 'scale(0.8)'});
             $('#instruct2').css({'top' : '85%'});
             $('#instruct').fadeIn(1000);
             $('#instruct2').fadeIn(1000);
@@ -87,11 +88,12 @@ Player.prototype.movePlayer = function(direction){
         $('#Player').remove();
         $('#welcome').text('You know the basics of the game...');
         $('#welcome2').text('Now go play!');
-        $('#welcome2').css({'top' : '60%'});
+        $('#welcome2').css({'top' : '50%'});
         $('#welcome').delay(1000).fadeIn(1000);
         $('#welcome2').delay(1000).fadeIn(1000);
         $('#cont').off('click');
         $('#cont').click(function(){
+            $('#cont').off();
             $('#welcome').fadeOut(1000);
             $('#welcome2').fadeOut(1000);
             $('#mycont').fadeOut(1000);
@@ -105,6 +107,7 @@ Player.prototype.movePlayer = function(direction){
             for(var i = 1; i < 10; i++){
                 loadButtons(i);
             }
+             $('#cont').off();
             window.setTimeout(function(){$('#menu').remove();}, 1000);
         });
         $('#cont').delay(1000).fadeIn(1000);
@@ -120,6 +123,7 @@ Player.prototype.movePlayer = function(direction){
         $(cont).text('Next Level');
         cont.className = 'continue';
         $(cont).click(function(){
+            $(cont).off();
             loadLevel(map+1);
             $('#winScreen').fadeOut(1000);
         });
@@ -135,10 +139,11 @@ Player.prototype.movePlayer = function(direction){
             $('#winScreen').fadeOut(1000);
             $('.button').fadeIn(1000);
             $('#gridContainer').fadeOut(1000);
-        });
-        $('html, body').css({
+            $('html, body').css({
             'overflow-y': 'auto'
-        }); 
+            }); 
+            $(menu).off();
+        });
         $(menu).appendTo('#winScreen');
     }
 }

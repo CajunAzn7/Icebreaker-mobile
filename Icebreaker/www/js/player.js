@@ -62,7 +62,7 @@ Player.prototype.movePlayer = function(direction){
     if(this.win === false){
         this.checkMoves();
     }
-    /*
+    
     else if(this.win === true && this.map == 'tutorial1'){
         $('#instruct').fadeOut();
         $('#instruct2').fadeOut();
@@ -77,8 +77,8 @@ Player.prototype.movePlayer = function(direction){
         }, 1000);
         
     }
-    */
-    else if(this.win === true && this.map == 'tutorial1'){
+    
+    else if(this.win === true && this.map == 'tutorial2'){
         this.win = false;
         $('html').off();
         $('#instruct').fadeOut(1000);
@@ -136,6 +136,9 @@ Player.prototype.movePlayer = function(direction){
             $('.button').fadeIn(1000);
             $('#gridContainer').fadeOut(1000);
         });
+        $('html, body').css({
+            'overflow-y': 'auto'
+        }); 
         $(menu).appendTo('#winScreen');
     }
 }

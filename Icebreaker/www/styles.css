@@ -111,6 +111,18 @@ div#cont.continue{
     position: absolute;
 }
 
+#loseScreen{
+    height: 400px;
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #009933;
+    display: none;
+    z-index: 2;
+    position: absolute;
+}
+
 .button{
     height: 200px;
     width: 200px;

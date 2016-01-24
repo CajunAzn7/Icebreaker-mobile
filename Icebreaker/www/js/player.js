@@ -59,11 +59,8 @@ Player.prototype.movePlayer = function(direction){
         this.clear++;
     }
     this.checkWin();
-    if(this.win === false){
-        this.checkMoves();
-    }
     
-    else if(this.win === true && this.map == 'tutorial1'){
+    if(this.win === true && this.map == 'tutorial1'){
         $('#instruct').fadeOut();
         $('#instruct2').fadeOut();
         $('#gridContainer').fadeOut();
@@ -85,7 +82,6 @@ Player.prototype.movePlayer = function(direction){
         $('#instruct').fadeOut(1000);
         $('#instruct2').fadeOut(1000);
         $('#gridContainer').fadeOut(1000);
-        $('#Player').remove();
         $('#welcome').text('You know the basics of the game...');
         $('#welcome2').text('Now go play!');
         $('#welcome2').css({'top' : '50%'});
@@ -117,7 +113,6 @@ Player.prototype.movePlayer = function(direction){
         $('html').off();
         var map = this.map;
         $('#winScreen').fadeIn(1000);
-        $('#Player').remove();
         var cont = document.createElement('div');
         $(cont).css('background-color', '#3399ff');
         $(cont).text('Next Level');
@@ -146,6 +141,9 @@ Player.prototype.movePlayer = function(direction){
         });
         $(menu).appendTo('#winScreen');
     }
+    else if(this.win === false){
+        this.checkMoves();
+    }
 }
 
 Player.prototype.checkWin = function(){
@@ -171,15 +169,43 @@ Player.prototype.checkWin = function(){
 }
 
 
-/*
 Player.prototype.checkMoves = function(){
+    var x = this.x_val;
+    var y = this.y_val;
     var top = $('#tile-'+ (x-1) + '-' + y).hasClass('t1');
     var bot = $('#tile-'+ (x+1) + '-' + y).hasClass('t1');
     var left = $('#tile-'+ (x) + '-' + (y - 1)).hasClass('t1');
     var right = $('#tile-'+ (x) + '-' + (y + 1)).hasClass('t1');
-    alert(top + ' ' + bot + ' ' + left + ' ' + right);
     if(!top && !left && !bot && !right){
-        alert('you lost');
+        $('html').off();
+        var map = this.map;
+        $('#loseScreen').fadeIn(1000);
+        var cont = document.createElement('div');
+        $(cont).css('background-color', '#3399ff');
+        $(cont).text('Replay');
+        cont.className = 'continue';
+        $(cont).click(function(){
+            $(cont).off();
+            loadLevel(map);
+            $('#loseScreen').fadeOut(1000);
+        });
+        $(cont).appendTo('#loseScreen');
+        var menu = document.createElement('div');
+        $(menu).text('Main Menu');
+        menu.className = 'continue';
+        $(menu).css({
+            'background-color': '#3399ff',
+            'top': '80%'
+        });
+        $(menu).click(function(){
+            $('#loseScreen').fadeOut(1000);
+            $('.button').fadeIn(1000);
+            $('#gridContainer').fadeOut(1000);
+            $('html, body').css({
+            'overflow-y': 'auto'
+            }); 
+            $(menu).off();
+        });
+        $(menu).appendTo('#loseScreen');
     }
 }
-*/

@@ -57,7 +57,7 @@ function generateMap(arr){
                 'width': winWid + 'px'
             });
             $(tile).appendTo($(tileContainer));
-            if(arr[i][k] == 'b'){
+            if(arr[i][k] == 0){
                 player = document.createElement('div');
                 player.id = 'Player';
                 $(player).css({

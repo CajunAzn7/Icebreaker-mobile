@@ -76,8 +76,9 @@ function generateMap(arr){
         'width' : (arr[0].length * (winWid)) + 'px',
         'height' : (arr.length * (winWid)) + 'px',
         'border' : '5px solid #6699ff',
-        'margin-top': 'auto',
-        'margin' : 'auto',
+        'top': '50%',
+        'left' : '50%',
+        'transform' : 'translate(-50%, -50%)',
         'display' : 'none'
     });
     
